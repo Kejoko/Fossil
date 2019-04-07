@@ -23,7 +23,7 @@ bld/
 [Ll]og/
 
 # Ignore information logged by game
-gamelogs/*
+gamelogs/
 
 # Visual Studio 2015 cache/options directory
 .vs/
