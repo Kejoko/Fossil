@@ -1,5 +1,5 @@
 # Project Fossil
-Project Fossil is a game engine that I am creating using C++ and OpenGL. I aam creating this engine with the intention of better learning C++, project organization, game engine architecture, and basic game design.
+Project Fossil is a game engine that I am creating using C++ and OpenGL. I am creating this engine with the intention of better learning C++, project organization, game engine architecture, and basic game design.
 
 Goals:
 While I am unsure exactly what the final game will look like, I have a few ideas and details that I am going to keep in mind while constructing this engine.
