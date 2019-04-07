@@ -1,6 +1,6 @@
 # Changelog
 
-***2019.04.07***
+#### ***2019.04.07***
 - Implemented basic directory structure
 - Creation of FileLogger class to easily write to files and log messages
 	- Properly working logMessage function
@@ -9,7 +9,8 @@
 	- Class that creates an instance of game and bootstraps
 	- Class that will implement main
 	- Replacement for main.cpp
-***Next:**
+
+**Next:**
 - Unit testing for FileLogger
 - Create and implement FileReader class
 - Unit testing for FileReader
