@@ -1,11 +1,11 @@
-//	This file contains methods that allow for easy writing to files.
+//	This file contains functionss that allow for easy writing to text files.
 
-#include <fstream>
+#include "FileIO.h"
 
 //	A method that writes a string to a specified file
 //	Returns true if the file was written to successfully
 //	Returns false if file was not written to successfully
-void logMessage(const char* message, std::string filePath, bool clear)
+void logMessage(std::string message, std::string filePath, bool clear)
 {
 	//	Open a file specified by filePath
 	std::ofstream outputFile;

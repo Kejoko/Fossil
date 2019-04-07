@@ -1,0 +1,7 @@
+[Display]
+Width=800
+Height=400
+Fullscreen=false
+
+[Graphics]
+Quality=Medium

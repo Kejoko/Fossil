@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\FileReader.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\FileLogger.cpp" />
   </ItemGroup>
