@@ -10,7 +10,7 @@
 	- Class that will implement main
 	- Replacement for main.cpp
 
-**Next:**
+	**Next:**
 - Unit testing for FileLogger
 - Create and implement FileReader class
 - Unit testing for FileReader
