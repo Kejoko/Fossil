@@ -1,0 +1,15 @@
+[Heading 1]
+Setting1_1=Setting 1_1
+Setting1_2=Setting 1_2
+Setting1_3=Setting 1_3
+
+[Heading 2]
+Setting2_1=False
+Setting2_2=True
+
+[Heading 3]
+Setting3_1=800
+Setting3_2=4500.567
+Setting3_3=Two Strings
+Setting3_4= SpaceBefore
+Setting3_5=SpaceBehind 

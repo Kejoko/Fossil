@@ -23,7 +23,7 @@ void logMessage(std::string message, std::string filePath, bool clear)
 }
 
 //	A function that updates the specified setting in the specified file
-void changeSetting(std::string filePath, std::string heading, int setting, std::string update)
+void changeSetting(std::string filePath, std::string heading, int settingNum, std::string update)
 {
 	//	Open specified file
 	std::ifstream prefsFileRead;
@@ -31,7 +31,8 @@ void changeSetting(std::string filePath, std::string heading, int setting, std::
 
 	//	Check if the file has opened successfully
 	if (prefsFileRead.is_open()) {
-		logMessage(filePath.substr(filePath.find_last_of("/") + 1, filePath.length()) + " opened successfully", "gamelogs.txt", false);
+		//	Update settings vector
+		updateSettings(heading, settingNum, update);
 
 		//	Create a vector to store every line of file
 		std::vector<std::string> lines;
@@ -57,11 +58,11 @@ void changeSetting(std::string filePath, std::string heading, int setting, std::
 		//	Check if the heading was missing
 		if (headingIndex != -1) {
 			//	Get specified line by adding setting to heading index
-			std::string newLine = lines.at(headingIndex + setting);
+			std::string newLine = lines.at(headingIndex + settingNum);
 
 			//	Change line
 			newLine = newLine.substr(0, newLine.find("=") + 1) + update;
-			lines.at(headingIndex + setting) = newLine;
+			lines.at(headingIndex + settingNum) = newLine;
 
 			//	Open file to write to it
 			std::ofstream prefsFileWrite;

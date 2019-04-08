@@ -8,7 +8,14 @@
 - Creation of multiplayerprefs file to store multiplayer settings
 	- I am not near the implementation of multiplayer yet, but I figured it'd be good to get my idea concreted and to get general architecture in place.
 - Implementation of function in FileLogger to change a specified setting value in gameprefs
-- Removal of log statements for testing in main function
+- Creation of Settings.h and Settings.cpp
+	- No longer have to store vectors for settings inside of game
+	- Creation of function to initialize the settings vectors with settings in specified files
+	- Creation of function to update settings vectors
+		- Called by changeSetting function in FileLogger
+- Changed the vectors storing settings to be global variables declared in Settings.h
+- Creation of header and files to declare and implement functions for testing file io
+	- Makes use of the testprefs text file
 
 **Next:**
 - Open window using display settings specified in gameprefs.txt

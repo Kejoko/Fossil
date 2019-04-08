@@ -1,5 +1,5 @@
 [Multiplayer]
-MultiplayerEnabled=false
-Hosting=false
+MultiplayerEnabled=False
+Hosting=False
 LocalIP=10.0.0.0.1
 RemoteHostIP=10.0.0.0.2
