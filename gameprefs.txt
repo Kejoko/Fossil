@@ -1,7 +1,7 @@
 [Display]
 Width=800
-Height=400
+Height=450
 Fullscreen=false
 
 [Graphics]
-Quality=Medium
+Quality=High

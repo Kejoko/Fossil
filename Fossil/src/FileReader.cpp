@@ -4,25 +4,25 @@
 
 //	A function that gets the settings specified in gameprefs.txt and
 //		returns a vector containing them as strings.
-std::vector<std::string> getSettings(std::string heading)
+std::vector<std::string> getSettings(std::string filePath, std::string heading)
 {
 	//	Create vector to store settings
 	std::vector<std::string> settings;
 
 	//	Open gameprefs.txt
 	std::ifstream prefsFile;
-	prefsFile.open("../../../gameprefs.txt");
+	prefsFile.open(filePath);
 
 	//	Check if prefsFile opened correctly
 	if (prefsFile.is_open()) {
-		//	Iterate through lines of gameprefs.txt until we reach the specified heading or end of file
+		//	Iterate through lines of prefsFile until we reach the specified heading or end of file
 		std::string currLine;
 		std::getline(prefsFile, currLine);
 		while (currLine != "[" + heading + "]" && !prefsFile.eof()) {
 			std::getline(prefsFile, currLine);
 
 			if (prefsFile.eof()) {
-				logMessage("Could not retrieve settings for " + heading, "gamelogs.txt", false);
+				logMessage("ERROR: Could not retrieve " + heading + " settings in " + filePath.substr(filePath.find_last_of("/") + 1, filePath.length()), "gamelogs.txt", false);
 			}
 		}
 
@@ -36,11 +36,11 @@ std::vector<std::string> getSettings(std::string heading)
 			std::getline(prefsFile, currLine);
 		}
 
-		//	Close gameprefs.txt
 		prefsFile.close();
 	}
 	else {
-		logMessage("Could not open gameprefs.txt", "gamelogs.txt", false);
+		//	Log an error message to gamelogs stating that the specified file could not be opened
+		logMessage("ERROR: Could not open " + filePath.substr(filePath.find_last_of("/") + 1, filePath.length()), "gamelogs.txt", false);
 	}
 
 	return settings;
