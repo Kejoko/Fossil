@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../src/FileIO.h"
+#include "../src/Log.h"
 #include "../src/Settings.h"
 
 //	Functions to test functions in FileIO.h

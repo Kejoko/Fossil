@@ -130,15 +130,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Log.cpp" />
     <ClCompile Include="src\Settings.cpp" />
-    <ClCompile Include="src\FileReader.cpp" />
-    <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\FileLogger.cpp" />
-    <ClCompile Include="test\Test_FileIO.cpp" />
+    <ClCompile Include="src\Core.cpp" />
+    <ClCompile Include="test\Test_IO.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Fossil.h" />
+    <ClInclude Include="src\Log.h" />
     <ClInclude Include="src\Settings.h" />
-    <ClInclude Include="src\FileIO.h" />
     <ClInclude Include="test\TestHeader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

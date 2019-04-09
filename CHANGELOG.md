@@ -1,5 +1,30 @@
 # Changelog
 
+### 2019.04.08
+- Renaming of Game.cpp in Fossil project to Core.cpp
+	- Instantiation of global Log object
+- Creation of Fossil.h to include all of the methods and namespace created in Fossil project
+	- To be used in game project, not in Fossil project
+- Creation of logger class to more easily log messages to files and terminals
+	- Declaration of global Log object
+- Removal of FileLogger, FileReader, and FileIO
+	- Moved logMessage to Log class
+	- Moved changeSetting to Settings.cpp
+	- Moved getSettings to Settings.cpp
+	- Initializes Game
+- Renaming of Test_FileIO to Test_IO
+
+**Next**
+- Create function in Log class to log messages to console
+- Creation of Game project
+	- Where actual game will be created
+	- Location of entry point
+- Create entry point and basic game loop
+- Change output of Fossil project
+	- Now outputs a dynamic library for Game poject's executable to utilize
+- Creation of a Game class in Game project
+
+
 ### 2019.04.07
 - Creation of gameprefs text file to store settings of the game
 - Changed FileLogger to use strings for printing instead of const char*
@@ -17,9 +42,6 @@
 - Creation of header and files to declare and implement functions for testing file io
 	- Makes use of the testprefs text file
 
-**Next:**
-- Open window using display settings specified in gameprefs.txt
-
 
 ### 2019.04.06
 - Implemented basic directory structure
@@ -30,9 +52,3 @@
 	- Class that creates an instance of game and bootstraps
 	- Class that will implement main
 	- Replacement for main.cpp
-
-**Next:**
-- Unit testing for FileLogger
-- Create and implement FileReader class
-- Unit testing for FileReader
-- Opening window with OpenGL
