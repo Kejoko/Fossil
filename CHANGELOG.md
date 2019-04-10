@@ -1,5 +1,22 @@
 # Changelog
 
+### 2019.04.09
+- Creation of Game class
+- Changed Log class
+	- Creation of funtions to log erros and messages to the console
+	- Defined macros to determine whether or not to output, based on type of build (debug or release)
+
+**Next**
+- Change build settings of Fossil project
+	- Build a .dll for Game project to link
+	- Change directory heirarchy to be one less level deep
+	- Add solution directory as a reference
+		- No longer need to include relative path to gameprefs and multiplayerprefs
+- Create new project in solution called Game
+	- Will build an executable
+	- Will reference dynamically linked library created by Fossil project
+	- Where actual game will be built
+
 ### 2019.04.08
 - Renaming of Game.cpp in Fossil project to Core.cpp
 	- Instantiation of global Log object
@@ -15,14 +32,12 @@
 - Renaming of Test_FileIO to Test_IO
 
 **Next**
-- Create function in Log class to log messages to console
 - Creation of Game project
 	- Where actual game will be created
 	- Location of entry point
 - Create entry point and basic game loop
 - Change output of Fossil project
 	- Now outputs a dynamic library for Game poject's executable to utilize
-- Creation of a Game class in Game project
 
 
 ### 2019.04.07

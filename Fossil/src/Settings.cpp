@@ -10,12 +10,57 @@ std::vector<std::string> multSettings;
 //	A function to initialize the setting vectors with the settings in the proper file under the proper heading
 void initializeSettings()
 {
-	displaySettings = getSettings("../../../gameprefs.txt", "Display");
-	graphicsSettings = getSettings("../../../gameprefs.txt", "Graphics");
-	multSettings = getSettings("../../../multiplayerprefs.txt", "Multiplayer");
+	//	Boolean to store whether or not settings have initialized properly
+	bool settingsInit = true;
 
-	//	Log message noting that settings have been updated
-	logger.logMessage("Settings initialized", "gamelogs.txt", false);
+	displaySettings = getSettings("../../gameprefs.txt", "Display");
+	if (!displaySettings.empty()) {
+		//	Log message to console noting display settings have been initialized
+		logger.logInfo("Display settings initialized");
+	}
+	else {
+		//	Log message noting display has not been initialized properly
+		logger.logError("Unable to initialize Display settings");
+
+		//	Set settingsInit to false
+		settingsInit = false;
+	}
+
+	graphicsSettings = getSettings("../../gameprefs.txt", "Graphics");
+	if (!graphicsSettings.empty()) {
+		//	Log message to console noting graphics settings have been initialized
+		logger.logInfo("Graphics settings initialized");
+	}
+	else {
+		//	Log message noting display has not been initialized properly
+		logger.logError("Unable to initialize Graphics settings");
+
+		//	Set settingsInit to false
+		settingsInit = false;
+	}
+
+	multSettings = getSettings("../../multiplayerprefs.txt", "Multiplayer");
+	if (!multSettings.empty()) {
+		//	Log message to console noting multiplayer settings have been initialized
+		logger.logInfo("Multiplayer settings initialized");
+	}
+	else {
+		//	Log message noting multiplayer settings has not been initialized properly
+		logger.logError("Unable to initialize Multiplayer settings");
+
+		//	Set settingsInit to false
+		settingsInit = false;
+	}
+
+	//	Determine if all settings have initialized properly
+	if (settingsInit) {
+		//	Log message noting that settings have been initialized
+		logger.logMessage("Settings initialized", "gamelogs.txt", false);
+	}
+	else {
+		//	Log message noting that one or more settings have not been initialized
+		logger.logMessage("One or more settings failed to initialize", "gamelogs.txt", false);
+	}
 }
 
 //	A function that gets the settings specified in gameprefs.txt and

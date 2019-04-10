@@ -4,7 +4,6 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include "Settings.h"
 #include "Log.h"
 
 //	Declare global settings vectors
