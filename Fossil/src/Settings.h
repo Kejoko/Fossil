@@ -6,6 +6,9 @@
 #include <vector>
 #include "Log.h"
 
+//	Declare instance of Log to log to console and files
+extern Log logger;
+
 //	Declare global settings vectors
 extern std::vector<std::string> displaySettings;
 extern std::vector<std::string> graphicsSettings;

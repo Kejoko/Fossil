@@ -2,6 +2,9 @@
 
 #include "Game.h"
 
+//	Initialize the Log class
+Log logger;
+
 Game::Game()
 {
 }

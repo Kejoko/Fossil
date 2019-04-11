@@ -2,8 +2,9 @@
 
 #include "Settings.h"
 #include "Log.h"
+#include "BuildDll.h"
 
-class Game
+class FSL_API Game
 {
 public:
 	Game();
@@ -13,4 +14,5 @@ public:
 	void Run();
 };
 
-extern Game game;
+//	Definined in client
+Game* CreateGame();

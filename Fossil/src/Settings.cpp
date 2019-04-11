@@ -1,4 +1,4 @@
-//	A class to store the vectors containing all of the setings
+// Functions to store the vectors containing all of the setings
 
 #include "Settings.h"
 
@@ -13,7 +13,7 @@ void initializeSettings()
 	//	Boolean to store whether or not settings have initialized properly
 	bool settingsInit = true;
 
-	displaySettings = getSettings("../../gameprefs.txt", "Display");
+	displaySettings = getSettings("../../../gameprefs.txt", "Display");
 	if (!displaySettings.empty()) {
 		//	Log message to console noting display settings have been initialized
 		logger.logInfo("Display settings initialized");
@@ -26,7 +26,7 @@ void initializeSettings()
 		settingsInit = false;
 	}
 
-	graphicsSettings = getSettings("../../gameprefs.txt", "Graphics");
+	graphicsSettings = getSettings("../../../gameprefs.txt", "Graphics");
 	if (!graphicsSettings.empty()) {
 		//	Log message to console noting graphics settings have been initialized
 		logger.logInfo("Graphics settings initialized");
@@ -39,7 +39,7 @@ void initializeSettings()
 		settingsInit = false;
 	}
 
-	multSettings = getSettings("../../multiplayerprefs.txt", "Multiplayer");
+	multSettings = getSettings("../../../multiplayerprefs.txt", "Multiplayer");
 	if (!multSettings.empty()) {
 		//	Log message to console noting multiplayer settings have been initialized
 		logger.logInfo("Multiplayer settings initialized");

@@ -4,8 +4,9 @@
 #include <string>
 #include <fstream>
 #include <Windows.h>
+#include "BuildDll.h"
 
-class Log
+class FSL_API Log
 {
 public:
 	Log();
@@ -23,5 +24,3 @@ public:
 	//	Function to log warning to console
 	void logError(std::string message);
 };
-
-extern Log logger;
