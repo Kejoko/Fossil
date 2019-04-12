@@ -8,6 +8,9 @@
 	- Where actual game will be built
 - Changed build settings of Fossil project
 	- Builds a .dll to be referenced by Workspace project
+- Working entry point in Fossil
+- Declaration of functions in Game class
+	- Basic implementation of main game loop
 
 **Next**
 - Configure reference settings properly
@@ -16,6 +19,10 @@
 - Configure build settings properly
 	- Make Fossil.dll be linked directly to Workspace.exe
 	- Remove need to copy-paste Fossil.dll into Workspaces build path for it to run properly
+- Create GameState class
+	- Abstract class to be extended for game state implementations
+- Start working with OpenGL
+	- Implement it within the game class
 
 ### 2019.04.09
 - Creation of Game class

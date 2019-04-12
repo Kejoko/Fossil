@@ -148,6 +148,7 @@
     <ClCompile Include="test\Test_IO.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\EntryPoint.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Fossil.h" />
     <ClInclude Include="src\BuildDll.h" />

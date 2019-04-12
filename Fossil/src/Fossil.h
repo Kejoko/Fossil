@@ -11,3 +11,4 @@
 #include "Log.h"
 #include "Game.h"
 #include "BuildDll.h"
+#include "EntryPoint.h"

@@ -47,5 +47,8 @@
     <ClInclude Include="src\BuildDll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\EntryPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
