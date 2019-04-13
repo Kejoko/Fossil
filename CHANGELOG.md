@@ -1,5 +1,10 @@
 # Changelog
 
+### 2019.04.11
+- Create abstract GameState class
+- Creation of GameStateStack class
+	- Stack of GameState pointers in Game class as data field
+
 ### 2019.04.10
 - Change directory heirarchy to be one less level deep
 	- Build to Bin/Debug-x64 rather than Bin/Debug/x64
@@ -19,8 +24,6 @@
 - Configure build settings properly
 	- Make Fossil.dll be linked directly to Workspace.exe
 	- Remove need to copy-paste Fossil.dll into Workspaces build path for it to run properly
-- Create GameState class
-	- Abstract class to be extended for game state implementations
 - Start working with OpenGL
 	- Implement it within the game class
 

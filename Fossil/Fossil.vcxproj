@@ -97,6 +97,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>FSL_BUILD_DLL;FSL_DEBUG;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -107,6 +108,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>FSL_BUILD_DLL;FSL_DEBUG;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -142,12 +144,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\GameStateStack.cpp" />
+    <ClCompile Include="src\GameState.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Log.cpp" />
     <ClCompile Include="src\Settings.cpp" />
     <ClCompile Include="test\Test_IO.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\GameStateStack.h" />
+    <ClInclude Include="src\GameState.h" />
     <ClInclude Include="src\EntryPoint.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Fossil.h" />

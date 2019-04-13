@@ -74,13 +74,24 @@ void Game::Run()
 //	Updates state of the game
 void Game::Update()
 {
-	logger.logInfo("Updating");
+	//	Get user input
+
+	//	Update game state
 }
 
 //	Displays game to the Window
 void Game::Display()
 {
-	logger.logInfo("Displaying");
+	//	Display the GameStates starting at the bottom of the stack
+	for (int i = 0; i < StateStack.NumberStates(); i++) {
+		StateStack.FetchState(i)->DisplayState();
+	}
+}
+
+void Game::PushState(GameState * state)
+{
+	//	Push game state using StateStack
+	StateStack.PushState(state);
 }
 
 //	Returns number of milliseconds elapsed since the system was started

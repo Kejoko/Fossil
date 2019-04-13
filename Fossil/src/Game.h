@@ -2,7 +2,11 @@
 
 #include "Settings.h"
 #include "Log.h"
+#include "GameState.h"
+#include "GameStateStack.h"
 #include "BuildDll.h"
+
+#include <vector>
 
 class FSL_API Game
 {
@@ -16,7 +20,12 @@ public:
 	void Run();
 	void Update();
 	void Display();
-	
+
+	void PushState(GameState* state);
+
+private:
+	GameStateStack StateStack;
+
 	int GetTickCount();
 };
 
