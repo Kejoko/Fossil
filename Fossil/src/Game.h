@@ -5,12 +5,17 @@
 #include "GameState.h"
 #include "GameStateStack.h"
 #include "BuildDll.h"
+#include "glew.h"
+#include "glfw3.h"
 
 #include <vector>
 
 class FSL_API Game
 {
 public:
+	std::string Name;
+	GLFWwindow* GameWindow;
+
 	bool running;
 
 	Game();

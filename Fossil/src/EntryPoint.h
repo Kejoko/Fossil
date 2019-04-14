@@ -6,7 +6,7 @@
 #include "BuildDll.h"
 
 //	Defined in Workspace/src/Project.cpp
-extern Game* CreateApplication();
+//extern Game* CreateApplication(std::string GameName);
 
 //	Entry point to game
 int main(int argc, char** argv)
@@ -17,6 +17,5 @@ int main(int argc, char** argv)
 	game->Run();
 	delete game;
 
-	int y;
-	std::cin >> y;
+	std::cin.get();
 }

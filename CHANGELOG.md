@@ -1,5 +1,17 @@
 # Changelog
 
+### 2019.04.13
+- Initialization of OpenGL context and window
+
+**Next**
+- Draw to window from GameState class objects
+- Configure reference settings properly
+	- Add solution directory as a reference so ther will no longer be the need to include relative path to gameprefs and multiplayerprefs
+	- Can simply open "gameprefs.txt" instead of "../../../gameprefs.txt"
+- Configure build settings properly
+	- Make Fossil.dll be linked directly to Workspace.exe
+	- Remove need to copy-paste Fossil.dll into Workspaces build path for it to run properly
+
 ### 2019.04.11
 - Create abstract GameState class
 - Creation of GameStateStack class
@@ -16,16 +28,6 @@
 - Working entry point in Fossil
 - Declaration of functions in Game class
 	- Basic implementation of main game loop
-
-**Next**
-- Configure reference settings properly
-	- Add solution directory as a reference so ther will no longer be the need to include relative path to gameprefs and multiplayerprefs
-	- Can simply open "gameprefs.txt" instead of "../../../gameprefs.txt"
-- Configure build settings properly
-	- Make Fossil.dll be linked directly to Workspace.exe
-	- Remove need to copy-paste Fossil.dll into Workspaces build path for it to run properly
-- Start working with OpenGL
-	- Implement it within the game class
 
 ### 2019.04.09
 - Creation of Game class

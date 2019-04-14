@@ -5,6 +5,7 @@
 class FSL_API GameState
 {
 public:
+
 	virtual ~GameState();
 
 	virtual void InitializeState() = 0;

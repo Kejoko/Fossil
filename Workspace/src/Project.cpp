@@ -5,7 +5,9 @@ Log wkspcLog;
 class GS_StartScreen : public GameState
 {
 public:
-	GS_StartScreen() : GameState() {}
+	GS_StartScreen() : GameState()
+	{
+	}
 
 	void InitializeState()
 	{
@@ -24,6 +26,7 @@ public:
 	void DisplayState()
 	{
 		//	Draw object to the window
+		wkspcLog.logWarn("Displaying StartScreen\n");
 	}
 };
 
@@ -32,8 +35,12 @@ class Workspace : public Game
 public:
 	Workspace()
 	{
+		Name = "Fossil Application";
+
+		wkspcLog.logWarn("Workspace Created\n");
+
 		//	Push start up screen to the stack
-		PushState(new GS_StartScreen);
+		PushState(new GS_StartScreen());
 	}
 
 	~Workspace()
