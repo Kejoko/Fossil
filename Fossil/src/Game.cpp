@@ -48,9 +48,34 @@ void Game::InitializeGame()
 //	Main game loop
 void Game::Run()
 {
+
+	GLfloat vertices[] =
+	{
+		-0.5, -0.5, 0.0,
+		0.0, 0.5, 0.0,
+		0.5, -0.5, 0.0
+	};
+
+	GLfloat color[] =
+	{
+		255, 0, 0,
+		0, 255, 0,
+		0, 0, 255
+	};
+
 	logger.logInfo("Running Game\n");
 	while (!glfwWindowShouldClose(GameWindow)) {
 		glClear(GL_COLOR_BUFFER_BIT);
+
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glEnableClientState(GL_COLOR_ARRAY);
+
+		glVertexPointer(3, GL_FLOAT, 0, vertices);
+		glColorPointer(3, GL_FLOAT, 0, color);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+
+		glDisableClientState(GL_COLOR_ARRAY);
+		glDisableClientState(GL_VERTEX_ARRAY);
 
 		Update();
 		Display();

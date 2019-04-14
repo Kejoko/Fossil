@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "Settings.h"
 #include "Log.h"
 #include "GameState.h"
@@ -7,8 +9,6 @@
 #include "BuildDll.h"
 #include "glew.h"
 #include "glfw3.h"
-
-#include <vector>
 
 class FSL_API Game
 {
