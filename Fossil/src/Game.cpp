@@ -1,10 +1,9 @@
-//	Class where functions that run game will be
-
 #include "Game.h"
-#include "Settings.h"
 
 //	Initialize the Log class
 Log logger;
+
+const int MAX_VERTICES = 150;
 
 Game::Game()
 {
@@ -12,7 +11,6 @@ Game::Game()
 
 	logger.logInfo("Game Created\n");
 }
-
 
 Game::~Game()
 {
@@ -49,33 +47,10 @@ void Game::InitializeGame()
 void Game::Run()
 {
 
-	GLfloat vertices[] =
-	{
-		-0.5, -0.5, 0.0,
-		0.0, 0.5, 0.0,
-		0.5, -0.5, 0.0
-	};
-
-	GLfloat color[] =
-	{
-		255, 0, 0,
-		0, 255, 0,
-		0, 0, 255
-	};
 
 	logger.logInfo("Running Game\n");
 	while (!glfwWindowShouldClose(GameWindow)) {
 		glClear(GL_COLOR_BUFFER_BIT);
-
-		glEnableClientState(GL_VERTEX_ARRAY);
-		glEnableClientState(GL_COLOR_ARRAY);
-
-		glVertexPointer(3, GL_FLOAT, 0, vertices);
-		glColorPointer(3, GL_FLOAT, 0, color);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-
-		glDisableClientState(GL_COLOR_ARRAY);
-		glDisableClientState(GL_VERTEX_ARRAY);
 
 		Update();
 		Display();
@@ -142,18 +117,42 @@ void Game::Update()
 //	Displays game to the Window
 void Game::Display()
 {
-	logger.logInfo("Displaying Game\n");
+	logger.logInfo("Displaying Game");
+
 	//	Display the GameStates starting at the bottom of the stack
-	for (int i = 0; i < StateStack.NumberStates(); i++) {
-		StateStack.FetchState(i)->DisplayState();
+	for (int i = 0; i < States.size(); i++) {
+
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glEnableClientState(GL_COLOR_ARRAY);
+
+		GLfloat vertArr[MAX_VERTICES * 3];
+		GLfloat textArr[MAX_VERTICES * 5];
+		GLfloat normsArr[MAX_VERTICES * 3];
+		int faceArr[MAX_VERTICES * 5];
+
+		//	Loop through all objects in current state
+		for (int j = 0; i < States.at(i)->Objects.size(); j++) {
+
+			logger.logWarn("Displaying:" + States.at(i)->Objects.at(i)->ObjectName);
+
+			States.at(i)->Objects.at(j)->ConvertToArrays(vertArr, textArr, normsArr, faceArr);
+			glVertexPointer(3, GL_FLOAT, 0, vertArr);
+			glVertexPointer(3, GL_FLOAT, 0, textArr);
+			glDrawArrays(GL_TRIANGLES, 0, 3);
+		}
+
+		glDisableClientState(GL_COLOR_ARRAY);
+		glDisableClientState(GL_VERTEX_ARRAY);
 	}
 }
 
+//	Pushes new gamestate to the stack
 void Game::PushState(GameState* state)
 {
 	logger.logInfo("Pushing State\n");
-	//	Push game state using StateStack
-	StateStack.PushState(state);
+	//	Initialize the gamestate then push it to the stack
+	state->InitializeState();
+	States.push_back(state);
 }
 
 //	Returns number of milliseconds elapsed since the system was started

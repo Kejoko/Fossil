@@ -1,10 +1,18 @@
 #pragma once
 
+#include <string>
 #include "BuildDll.h"
+#include "GameObject.h"
+#include <vector>
+#include "glew.h"
+#include "glfw3.h"
 
 class FSL_API GameState
 {
 public:
+	std::vector<GameObject*> Objects;
+
+	GLFWwindow* Window;
 
 	virtual ~GameState();
 
@@ -17,5 +25,6 @@ public:
 	virtual void DisplayState() = 0;
 
 protected:
+	std::string StateName;
 	GameState();
 };
