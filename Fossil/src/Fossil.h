@@ -13,7 +13,6 @@
 #include "EntryPoint.h"
 #include "Game.h"
 #include "GameState.h"
-#include "GameStateStack.h"
 #include "GameObject.h"
 #include <glew.h>
 #include <glfw3.h>

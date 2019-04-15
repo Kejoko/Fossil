@@ -1,16 +1,24 @@
 # Changelog
 
-### 2019.04.13
-- Initialization of OpenGL context and window
-
+### 2019.04.14
+- Removal of GameStateStack
+	- Implemented vector stack into Game
+- Creation of GameObject class
+	- Objects stored in vector of a GameState object
+	
 **Next**
-- Draw to window from GameState class objects
+- Draw to window from Game Display function properly
+	- Iterate through GameStates and through each State's vector of Objects
 - Configure reference settings properly
 	- Add solution directory as a reference so ther will no longer be the need to include relative path to gameprefs and multiplayerprefs
 	- Can simply open "gameprefs.txt" instead of "../../../gameprefs.txt"
 - Configure build settings properly
 	- Make Fossil.dll be linked directly to Workspace.exe
 	- Remove need to copy-paste Fossil.dll into Workspaces build path for it to run properly
+	- The objects to be rendered
+
+### 2019.04.13
+- Initialization of OpenGL context and window
 
 ### 2019.04.11
 - Create abstract GameState class

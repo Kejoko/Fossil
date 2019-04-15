@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include "BuildDll.h"
-#include "Game.h"
+#include "Settings.h"
 #include "glew.h"
 
 class FSL_API GameObject

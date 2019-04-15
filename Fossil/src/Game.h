@@ -1,11 +1,12 @@
 #pragma once
 
+#include <vector>
+#include <string>
+#include "BuildDll.h"
 #include "Settings.h"
 #include "Log.h"
 #include "GameState.h"
-#include "GameStateStack.h"
-#include "BuildDll.h"
-#include <vector>
+#include "GameObject.h"
 #include "glew.h"
 #include "glfw3.h"
 
@@ -14,6 +15,7 @@ class FSL_API Game
 public:
 	std::string Name;
 	GLFWwindow* GameWindow;
+	std::vector<GameState*> States;
 
 	bool running;
 
@@ -27,9 +29,7 @@ public:
 	void PushState(GameState* state);
 
 private:
-	GameStateStack StateStack;
 	int GetTickCount();
-	std::vector<GameState*> States;
 };
 
 //	Definined in client

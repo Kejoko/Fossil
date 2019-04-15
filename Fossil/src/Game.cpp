@@ -7,26 +7,28 @@ const int MAX_VERTICES = 150;
 
 Game::Game()
 {
+	logger.logWarn("Game.cpp: Game | No Args Constructor");
 	logger.logMessage(". . . Game Created . . . \n", "gamelogs.txt", true);
-
-	logger.logInfo("Game Created\n");
+	//logger.logInfo("Game Created\n");
 }
 
 Game::~Game()
 {
+	logger.logWarn("Game.cpp: Game | Deconstructor");
 	logger.logMessage("\n. . . Game Terminated . . .", "gamelogs.txt", false);
 
 	//	Terminate glfw and destroy window
 	glfwTerminate();
 	glfwDestroyWindow(GameWindow);
 
-	logger.logInfo("GLFW & Game Terminated\n");
+	//logger.logInfo("GLFW & Game Terminated\n");
 }
 
 //	Initialize all settings
 void Game::InitializeGame()
 {
-	logger.logInfo("Attempting to initialize game");
+	logger.logWarn("Game.cpp: Game | InitializeGame");
+	//logger.logInfo("Attempting to initialize game");
 
 	//	Initialize the settings vectors
 	initializeSettings();
@@ -40,20 +42,41 @@ void Game::InitializeGame()
 	}
 	glfwMakeContextCurrent(GameWindow);
 
-	logger.logInfo("Finished attempt to initialize game\n");
+	//logger.logInfo("Finished attempt to initialize game\n");
 }
 
 //	Main game loop
 void Game::Run()
 {
+	logger.logWarn("Game.cpp: Game | Run");
 
+	//	Testing
+	GLfloat normsArr[MAX_VERTICES * 3];
+	int faceArr[MAX_VERTICES * 5];
+	GLfloat vertArr[9];
+	GLfloat textArr[9];
 
-	logger.logInfo("Running Game\n");
+	logger.logWarn("Displaying:" + States.at(0)->Objects.at(0)->ObjectName);
+	States.at(0)->Objects.at(0)->ConvertToArrays(vertArr, textArr, normsArr, faceArr);
+
+	//logger.logInfo("Running Game\n");
 	while (!glfwWindowShouldClose(GameWindow)) {
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		Update();
-		Display();
+		//Update();
+		//Display();
+
+		//	Copied from display
+		glEnableClientState(GL_VERTEX_ARRAY);
+		//glEnableClientState(GL_COLOR_ARRAY);
+
+		glVertexPointer(3, GL_FLOAT, 0, vertArr);
+		//glVertexPointer(3, GL_FLOAT, 0, textArr);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+
+		//glDisableClientState(GL_COLOR_ARRAY);
+		glDisableClientState(GL_VERTEX_ARRAY);
+		//	End of copy from display()
 
 		glfwSwapBuffers(GameWindow);
 
@@ -108,7 +131,8 @@ void Game::Run()
 //	Updates state of the game
 void Game::Update()
 {
-	logger.logInfo("Updating Game\n");
+	logger.logWarn("Game.cpp: Game | Update");
+	//logger.logInfo("Updating Game\n");
 	//	Get user input
 
 	//	Update game state
@@ -117,39 +141,44 @@ void Game::Update()
 //	Displays game to the Window
 void Game::Display()
 {
-	logger.logInfo("Displaying Game");
+	logger.logWarn("Game.cpp: Game | Display");
+	//logger.logInfo("Displaying Game");
+
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_COLOR_ARRAY);
 
 	//	Display the GameStates starting at the bottom of the stack
-	for (int i = 0; i < States.size(); i++) {
-
-		glEnableClientState(GL_VERTEX_ARRAY);
-		glEnableClientState(GL_COLOR_ARRAY);
-
-		GLfloat vertArr[MAX_VERTICES * 3];
-		GLfloat textArr[MAX_VERTICES * 5];
+	//for (int i = 0; i < States.size(); i++) {
+		
+		//GLfloat vertArr[MAX_VERTICES * 3];
+		//GLfloat textArr[MAX_VERTICES * 5];
+		
 		GLfloat normsArr[MAX_VERTICES * 3];
 		int faceArr[MAX_VERTICES * 5];
 
+		GLfloat vertArr[9];
+		GLfloat textArr[9];
+
 		//	Loop through all objects in current state
-		for (int j = 0; i < States.at(i)->Objects.size(); j++) {
+		//for (int j = 0; i < States.at(i)->Objects.size(); j++) {
 
-			logger.logWarn("Displaying:" + States.at(i)->Objects.at(i)->ObjectName);
+			logger.logWarn("Displaying:" + States.at(0)->Objects.at(0)->ObjectName);
+			States.at(0)->Objects.at(0)->ConvertToArrays(vertArr, textArr, normsArr, faceArr);
 
-			States.at(i)->Objects.at(j)->ConvertToArrays(vertArr, textArr, normsArr, faceArr);
 			glVertexPointer(3, GL_FLOAT, 0, vertArr);
 			glVertexPointer(3, GL_FLOAT, 0, textArr);
 			glDrawArrays(GL_TRIANGLES, 0, 3);
-		}
 
-		glDisableClientState(GL_COLOR_ARRAY);
-		glDisableClientState(GL_VERTEX_ARRAY);
-	}
+		//}
+	//}
+	glDisableClientState(GL_COLOR_ARRAY);
+	glDisableClientState(GL_VERTEX_ARRAY);
 }
 
 //	Pushes new gamestate to the stack
 void Game::PushState(GameState* state)
 {
-	logger.logInfo("Pushing State\n");
+	logger.logWarn("Game.cpp: Game | PushState");
 	//	Initialize the gamestate then push it to the stack
 	state->InitializeState();
 	States.push_back(state);
