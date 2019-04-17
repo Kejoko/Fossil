@@ -1,14 +1,17 @@
 # Changelog
 
-### 2019.04.14
-- Removal of GameStateStack
-	- Implemented vector stack into Game
-- Creation of GameObject class
-	- Objects stored in vector of a GameState object
+### 2019.04.16
+- Updated Game::Display
+	- DrawObject function added to GameObject
+	- DisplayState function implemented in base GameState class
+	- No longer need to chain many function calls in game, simply call DisplayState
+- Removal of GLFWwindow pointer in GameState class
+- Added position values to GameObject class
+- Added move function to GameObject class
 	
 **Next**
-- Draw to window from Game Display function properly
-	- Iterate through GameStates and through each State's vector of Objects
+- Render the multiple GameObjects at the same time (batch render)
+	- Currently loopingthrough each object, needs to be all done at once
 - Configure reference settings properly
 	- Add solution directory as a reference so ther will no longer be the need to include relative path to gameprefs and multiplayerprefs
 	- Can simply open "gameprefs.txt" instead of "../../../gameprefs.txt"
@@ -16,6 +19,12 @@
 	- Make Fossil.dll be linked directly to Workspace.exe
 	- Remove need to copy-paste Fossil.dll into Workspaces build path for it to run properly
 	- The objects to be rendered
+
+### 2019.04.14
+- Removal of GameStateStack
+	- Implemented vector stack into Game
+- Creation of GameObject class
+	- Objects stored in vector of a GameState object
 
 ### 2019.04.13
 - Initialization of OpenGL context and window

@@ -15,15 +15,19 @@ public:
 	std::vector<GLfloat> textures;
 	std::vector<GLfloat> normals;
 	std::vector<int> faces;
+	GLfloat xpos;
+	GLfloat ypos;
+	GLfloat zpos;
 	bool Visible = true;
 
 	GameObject();
-	GameObject(std::string name, std::string file);
+	GameObject(std::string name, std::string file, GLfloat x, GLfloat y, GLfloat z);
 	~GameObject();
-
 	void ImportOBJ();
-
 	void ConvertToArrays(GLfloat* verts, GLfloat* txtrs, GLfloat* norms, int* face);
+	void DrawObject();
+
+	void MoveObject(GLfloat xdist, GLfloat ydist, GLfloat zdist);
 
 };
 

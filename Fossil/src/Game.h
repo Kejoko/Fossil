@@ -13,7 +13,7 @@
 class FSL_API Game
 {
 public:
-	std::string Name;
+	std::string GameName;
 	GLFWwindow* GameWindow;
 	std::vector<GameState*> States;
 

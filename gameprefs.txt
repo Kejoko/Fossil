@@ -1,6 +1,6 @@
 [Display]
-Width=800
-Height=450
+Width=1200
+Height=675
 Fullscreen=False
 
 [Graphics]

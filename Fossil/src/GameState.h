@@ -12,7 +12,6 @@ class FSL_API GameState
 public:
 	std::string StateName;
 	std::vector<GameObject*> Objects;
-	GLFWwindow* Window;
 	
 	virtual ~GameState();
 
@@ -22,18 +21,8 @@ public:
 	virtual void ResumeState() = 0;
 
 	virtual void UpdateState() = 0;
-	virtual void DisplayState() = 0;
-	/*
-	~GameState();
-
-	void InitializeState();
-
-	void PauseState();
-	void ResumeState();
-
-	void UpdateState();
 	void DisplayState();
-	*/
+
 protected:
 	GameState();
 };
