@@ -14,8 +14,8 @@ public:
 
 		StateName = name;
 
-		Objects.push_back(new GameObject("Triangle", "NoFileYet", 0.5, 0.5, 0));
-		Objects.push_back(new GameObject("Triangle2", "NoFileYet", -0.5, -0.5, 0));
+		Objects.push_back(new GameObject("Triangle", "NoFileYet", 0.0, 0.0, 0));
+		Objects.push_back(new GameObject("Triangle2", "NoFileYet", -0.25, -0.25, 0));
 	}
 
 	~GS_StartScreen() { wkspcLog.logInfo("Project.cpp: GS_StartScreen | Deconstructor"); }

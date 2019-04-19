@@ -18,15 +18,41 @@ GameObject::~GameObject() { logger.logInfo("GameObject.cpp: " + ObjectName + " |
 void GameObject::ImportOBJ()
 {
 	logger.logInfo("GameObject.cpp: " + ObjectName + " | ImportOBJ");
-	vertices.push_back(-0.5 + xpos);
-	vertices.push_back(-0.5 + ypos);
-	vertices.push_back(0.0 + zpos);
 	vertices.push_back(0.0 + xpos);
-	vertices.push_back(0.5 + ypos);
-	vertices.push_back(0.0 + zpos);
+		vertices.push_back(0.0 + ypos);
+		vertices.push_back(0.0 + zpos);
+
+	vertices.push_back(-0.5 + xpos);
+		vertices.push_back(-0.5 + ypos);
+		vertices.push_back(0.0 + zpos);
+
 	vertices.push_back(0.5 + xpos);
-	vertices.push_back(-0.5 + ypos);
-	vertices.push_back(0.0 + zpos);
+		vertices.push_back(-0.5 + ypos);
+		vertices.push_back(0.0 + zpos);
+
+	/*
+	vertices.push_back(0.0 + xpos);
+		vertices.push_back(0.0 + ypos);
+		vertices.push_back(0.0 + zpos);
+	
+
+	vertices.push_back(0.5 + xpos);
+		vertices.push_back(0.5 + ypos);
+		vertices.push_back(0.0 + zpos);
+
+	vertices.push_back(-0.5 + xpos);
+		vertices.push_back(0.5 + ypos);
+		vertices.push_back(0.0 + zpos);
+	*/
+
+	faces.push_back(0);
+	faces.push_back(1);
+	faces.push_back(2);
+
+	faces.push_back(3);
+	faces.push_back(4);
+	faces.push_back(0);
+
 	textures.push_back(255);
 	textures.push_back(0.0);
 	textures.push_back(0.0);
@@ -38,7 +64,7 @@ void GameObject::ImportOBJ()
 	textures.push_back(255);
 }
 
-void GameObject::ConvertToArrays(GLfloat *verts, GLfloat *txtrs, GLfloat *norms, int *face)
+void GameObject::ConvertToArrays(GLfloat *verts, GLfloat *txtrs, GLfloat *norms, GLushort* face)
 {
 	logger.logInfo("GameObject.cpp: " + ObjectName + " | ConvertToArrays");
 
@@ -70,7 +96,7 @@ void GameObject::DrawObject()
 	GLfloat vertArr[sizeof(vertices)];
 	GLfloat textArr[sizeof(textures)];
 	GLfloat normsArr[sizeof(normals)];
-	int faceArr[sizeof(faces)];
+	GLushort faceArr[sizeof(faces)];
 	ConvertToArrays(vertArr, textArr, normsArr, faceArr);
 
 	glEnableClientState(GL_VERTEX_ARRAY);
@@ -82,6 +108,7 @@ void GameObject::DrawObject()
 
 	glDisableClientState(GL_COLOR_ARRAY);
 	glDisableClientState(GL_VERTEX_ARRAY);
+	
 }
 
 void GameObject::MoveObject(GLfloat xdist, GLfloat ydist, GLfloat zdist)
